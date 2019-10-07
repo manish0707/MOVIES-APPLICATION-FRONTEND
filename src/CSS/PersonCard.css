@@ -1,0 +1,52 @@
+.person-card {
+    border: 1px solid black;
+    margin: 20px;
+    width: 250px;
+    /* box-shadow: 0 0px 50px rgba(0, 0, 0, .5); */
+}
+.person-image {
+    height: 250px;
+    width: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.person-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.person-names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    padding: 0px 10px;
+    background: rgb(33, 221, 196);
+    border: none;
+    width: 80%;
+    height: 50px;
+    text-align:center;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: inherit;
+}
+.AS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+    background: rgb(33, 221, 196);
+    border: none;
+    width: 20%;
+    height: 15px;
+    text-align:center;
+    color: black;
+    font-weight: bolder;
+    font-size: 14px;
+    border-radius: 5px;
+    font-family: inherit;
+}
