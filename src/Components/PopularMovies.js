@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import "../CSS/PopularMovies.css";
 import MovieCard from './MovieCard';
-const Api_url = "https://api.themoviedb.org/3/movie/popular?api_key=7670452493bc6524525019bd4fea8f48&language=en-US&page=1";
+import { API_BASE_URL } from '../constant/api'
 
 export class PopularMovies extends Component {
     constructor(props) {
@@ -12,22 +12,24 @@ export class PopularMovies extends Component {
         }
     }
     async componentDidMount() {
-        const response = await axios.get(Api_url);
-        const data = response.data.results;
-        data.forEach(movie => {
-            this.setState(st => ({
-                PopularMovies : [...st.PopularMovies,
-                    {
-                         id : movie.id,
-                         poster : movie.poster_path,
-                         name : movie.original_title,
-                         releaseDate : movie.release_date,
-                         overview : movie.overview,
-                         rating : movie.vote_average,
-                         popularity : movie.popularity,
-                    }
-                ]
-            }));
+        const response = await axios.get(API_BASE_URL + 'movies/popular');
+        const data = response.data.popularMovies.results;
+        data.forEach((movie, index) => {
+            if(index !== 3) {
+                this.setState(st => ({
+                    PopularMovies : [...st.PopularMovies,
+                        {
+                             id : movie.id,
+                             poster : movie.poster_path,
+                             name : movie.original_title,
+                             releaseDate : movie.release_date,
+                             overview : movie.overview,
+                             rating : movie.vote_average,
+                             popularity : movie.popularity,
+                        }
+                    ]
+                }));
+            }
         });
     }
     render() {

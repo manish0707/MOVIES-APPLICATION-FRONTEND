@@ -1,11 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom'
 import "../CSS/MovieInfo.css";
 import MovieCast from './MovieCastandCrew';
-const MovieDetailsApi = "https://api.themoviedb.org/3/movie/";
-const CastDetailsApi = "https://api.themoviedb.org/3/movie/"
-const apikey = "?api_key=7670452493bc6524525019bd4fea8f48";
-
+import { API_BASE_URL } from '../constant/api'
 
 export default class MovieInfo extends React.Component {
     constructor(props) {
@@ -22,18 +20,18 @@ export default class MovieInfo extends React.Component {
         this.clickHandle = this.clickHandle.bind(this);
     }
     async componentDidMount() {
-        let movieInfo = await Axios.get(`${MovieDetailsApi}${this.Movieid}${apikey}`);
+        let movieInfo = await Axios.get(`${API_BASE_URL}movies/${this.Movieid}`);
         this.setState({
-            movieInfo : movieInfo.data
+            movieInfo : movieInfo.data.movie
         });
 
-        const CastAndCrew = await Axios.get(`${CastDetailsApi}${this.Movieid}/credits${apikey}`);
+        const CastAndCrew = await Axios.get(`${API_BASE_URL}movies/${this.Movieid}/credits`);
         this.setState({
-            castInfo : CastAndCrew.data.cast
+            castInfo : CastAndCrew.data.credits.cast
         });
 
         this.setState({
-            crewInfo : CastAndCrew.data.crew
+            crewInfo : CastAndCrew.data.credits.crew
         });
 
     }
@@ -51,8 +49,9 @@ export default class MovieInfo extends React.Component {
         }
     }
     render() {
+        console.log(this.state)
         const imageurl = `https://image.tmdb.org/t/p/w500${this.state.movieInfo.backdrop_path}`;
-        const {original_title, overview, popularity,revenue,homepage } = this.state.movieInfo;
+        const {id, original_title, overview, popularity,revenue } = this.state.movieInfo;
         const styling = {
             backgroundColor : "#182C61"
         }
@@ -68,7 +67,7 @@ export default class MovieInfo extends React.Component {
                             <p className="movie-info-para overview">{overview}</p>
                             <p className="highlighted-details ">Popularity : {popularity}</p>
                             <p className="highlighted-details ">Revenue : {revenue}</p>
-                            <a className="movie-info-homepage-link" href={homepage}>Click for homepage</a>  
+                            <div className="reviewLink"><Link to={`/movies/${id}/reviews`}>Read Reviews</Link></div>
                         </div>
                     </div>
                     <div className="other-info">

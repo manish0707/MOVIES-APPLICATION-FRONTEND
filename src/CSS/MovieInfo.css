@@ -180,3 +180,18 @@
     justify-content: center;
 }
 
+.reviewLink {
+    padding: 5px 20px;
+    border: 1px solid black;
+    background-color: lightgreen;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.reviewLink:hover {
+    background-color: rgb(20, 22, 20);
+    color: #fff;
+    transition: all .3s ease;
+    cursor: pointer;
+}

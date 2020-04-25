@@ -3,38 +3,21 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-bottom: 200px;
-}
-
-.front {
-    height: 400px;
-    margin-top: -17px;
-    background: url('../images/moviePerson.jpg');
-    background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-family: inherit;
-    box-shadow: inset 10px 10px 200px rgba(0, 0, 0, .6);
 }
 
 .contact-form {
     display: flex;
     justify-content: center;
-    height: 700px;
 }
 
 .contact-table {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 50%;
+    width: 30%;
+    padding: 10px 20px;
+    margin-top: 10px;
     border: 1px solid black;
-    padding: 50px;
-    margin-top: 80px;
     box-shadow: 0 20px 20px rgba(0, 0, 0, .5);
 }
 
@@ -48,9 +31,7 @@
     color: #fff;
     letter-spacing: 1px;
     width: 100%;
-    margin: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
 }
 
 .contact-table label {
@@ -60,7 +41,7 @@
 
 .contact-table input, textarea {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 5px 0;
     width: 100%;
     padding: 10px 0;
     background: transparent;

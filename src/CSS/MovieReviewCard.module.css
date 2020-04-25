@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap');
+
+.ReviewCardWrapper {
+  height: 400px;
+  width: 300px;
+  padding: 20px 10px;
+  color: #ffffff;
+  margin: 0 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .5);
+  overflow: scroll;
+}
+
+.ReviewCardWrapper p {
+  font-family: 'Baloo Bhai 2', cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
